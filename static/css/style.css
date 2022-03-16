@@ -3,16 +3,13 @@ body {
 }
 
 .brand {
-    font-family: Lato, sans-serif;
+    font-family: 'Meddon', sans-serif;
     font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+    font-weight: 800;
+    color: #ec0c0c;
+    background-color: #b3a8e0;
+    border-radius: 40%;
 }
-
-.red-o {
-    color: #E84610;
-}
-
 .thin {
     font-weight: 300;
 }
