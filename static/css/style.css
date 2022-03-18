@@ -148,10 +148,37 @@ body {
 .mmargin {
     margin: 0 10px;
 }
+.marginzero {
+    margin: 0;
+}
 .nav-item {
     text-align: center;
 }
 
 .navbar-collapse {
     flex-grow: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.marginfour {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.width75per {
+    width: 75%;
+}
+
+.goingflex {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+}
+
+footer h2 {
+    text-align: center;
 }
