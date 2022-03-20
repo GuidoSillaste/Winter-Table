@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_summernote',
     'foodtable',
+    'home',
 ]
 
 SITE_ID = 1
