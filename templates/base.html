@@ -47,14 +47,14 @@
                             Table
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Public Tables</a></li>
+                            <li><a class="dropdown-item" href="{% url 'table' %}">Public Tables</a></li>
                             <li><a class="dropdown-item" href="#">Family Tables</a></li>
                             <li><a class="dropdown-item" href="#">Your Tables</a></li>
                         </ul>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Tables</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'table' %}">Tables</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">

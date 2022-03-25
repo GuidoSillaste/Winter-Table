@@ -9,7 +9,7 @@ class PostList(generic.ListView):
     """" doc string """
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
-    template_name = "update.html"
+    template_name = "table.html"
     paginate_by = 6
 
 
@@ -26,7 +26,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            "table-content.html",
             {
                 "post": post,
                 "comments": comments,
@@ -57,7 +57,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            "table-content.html",
             {
                 "post": post,
                 "comments": comments,
@@ -78,4 +78,4 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('table-content', args=[slug]))
