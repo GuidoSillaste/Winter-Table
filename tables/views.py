@@ -47,16 +47,9 @@ class PostDetail(View):
         desserts = post.dessert.order_by("-created_on")
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
+        dessert_form = DessertForm()
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        dessert_form = DessertForm(data=request.POST)
-        if dessert_form.is_valid():
-            dessert = dessert_form.save(request.POST)
-            dessert.post = post
-            dessert.save()
-        else:
-            dessert_form = DessertForm()
-
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -80,7 +73,6 @@ class PostDetail(View):
                 "liked": liked
             },
         )
-
 
 class PostLike(View):
     """" doc string """
