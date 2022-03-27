@@ -3,7 +3,11 @@
 This website was created to fix the hassle of last minute planning for a christmas table and new year table.
 Project failed as imagination was greater then provided book(module) could offer ,which only offered basic database managment.
 When asking for help was denied stating its self learning course.
-
+Logins that are created:
+USER= siteidmissing
+PASSWORD= 7856pood2
+ADMIN= Guido
+PASSWORD= 7856pood2
 ![Responsiveness]()
 
 ## Demo
@@ -113,6 +117,7 @@ Testing not done since not complete
 - constant errors whit bootstrap collicions never did fix them
 - constant errors 404 being the most usual some times 303 yet it did not fullfill the function intented
 - gray screen full of text usualy on proxy server especially when trying to add picture or manipulate database
+- admin panel and login showed a error for a long time so added 2 admins later fixed when found typo
 
 ## Validator Testing
 
