@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, DessertForm
 
 
 class PostList(generic.ListView):
@@ -19,17 +19,21 @@ class PostDetail(View):
         """" doc string """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
+        desserts = post.dessert.order_by("-created_on")
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+        dessert_form = DessertForm()
 
         return render(
             request,
             "table-content.html",
             {
                 "post": post,
+                "desserts": desserts,
                 "comments": comments,
+                "dessert_form": dessert_form,
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
@@ -40,10 +44,18 @@ class PostDetail(View):
         """" doc string """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
+        desserts = post.dessert.order_by("-created_on")
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+        dessert_form = DessertForm(data=request.POST)
+        if dessert_form.is_valid():
+            dessert = dessert_form.save(request.POST)
+            dessert.post = post
+            dessert.save()
+        else:
+            dessert_form = DessertForm()
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -61,6 +73,8 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
+                "desserts": desserts,
+                "dessert_form": dessert_form,
                 "commented": True,
                 "comment_form": comment_form,
                 "liked": liked

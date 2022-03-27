@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment
+from .models import Post, Comment, Dessert
 
 
 @admin.register(Post)
@@ -24,3 +24,9 @@ class CommentAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         """" doc string """
         queryset.update(approved=True)
+
+@admin.register(Dessert)
+class DessertAdmin(admin.ModelAdmin):
+    """" doc string """
+    list_display = ('title', 'post', 'created_on')
+    list_filter = ('created_on',)

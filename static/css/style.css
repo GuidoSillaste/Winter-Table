@@ -183,3 +183,36 @@ a {
 footer h2 {
     text-align: center;
 }
+
+.color3 {
+    background-color: #23BBBB;
+    min-height: 300px;
+    position: relative !important;
+    padding: 0;
+    margin: 10px;
+}
+
+.textcenterA {
+    text-align: center;
+}
+
+.addstyle {
+    display: flex;
+    width: 100%;
+    position: absolute !important;
+    bottom: 0;
+    padding: 5px;
+}
+
+.buttonwidth{
+    width: 25%;
+}
+
+.tableStyle {
+    width: 90% !important;
+    margin: auto;
+}
+
+.imgHeight {
+    height: 100%;
+}

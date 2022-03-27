@@ -39,24 +39,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
-
-                    {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Table
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'table' %}">Public Tables</a></li>
-                            <li><a class="dropdown-item" href="#">Family Tables</a></li>
-                            <li><a class="dropdown-item" href="#">Your Tables</a></li>
-                        </ul>
-                    </li>
-                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'table' %}">Tables</a>
                     </li>
-                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'update' %}">Updates</a>
                     </li>

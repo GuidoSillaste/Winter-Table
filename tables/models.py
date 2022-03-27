@@ -52,3 +52,17 @@ class Comment(models.Model):
     def __str__(self):
         """" doc string """
         return f"Comment {self.body} by {self.name}"
+class Dessert(models.Model):
+    """ doc string """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                             related_name="dessert")
+    title = models.CharField(max_length=50, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        """" doc string """
+        ordering = ["created_on"]
+
+    def __str__(self):
+        """" doc string """
+        return self.title
